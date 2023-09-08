@@ -1,0 +1,37 @@
+.confirm-button {
+  background-color: #1976d2;
+  color: white;
+  width: 60px;
+}
+.confirm-button:hover {
+  background-color: #1565c0;
+}
+
+.cancel-button {
+  background-color: #1976d2;
+  color: white;
+  margin-left: 8px;
+  width: 60px;
+}
+.cancel-button:hover {
+  background-color: #1565c0;
+}
+
+.confirm-button,
+.cancel-button {
+  border: none;
+  border-radius: 15px;
+}
+
+.error-message {
+  font-size: 14px;
+  color: red;
+  margin-top: 5px;
+}
+
+.black-text {
+  color: black;
+}
+.example-full-width{
+  width: 500px;
+}

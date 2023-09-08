@@ -1,0 +1,152 @@
+<div class="entire">
+<h2 mat-dialog-title>{{ data.title }}</h2>
+<mat-dialog-content>
+  <p>{{ data.description }}</p>
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  <br>
+
+  <!--Organigrammi-->
+  <ng-container *ngIf="section === 'Organigrammi'">
+    <div class="input-column">
+      <div class="form-group row">
+        <label class="col-sm-4 col-form-label black-text">Nome:</label>
+        <div class="col-sm-8">
+          <mat-form-field class="example-full-width">
+            <mat-label>Nome:</mat-label>
+            <input matInput placeholder="Nome" class="form-control" [(ngModel)]="organigramName" readonly>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="button-group">
+      <button mat-button class="confirm-button" (click)="confirm()">Ok</button>
+    </div>
+  </ng-container>
+
+  <!--Unità Organizzative-->
+  <ng-container *ngIf="section === 'Unità Organizzative'">
+    <div class="input-column">
+      <div class="form-group row">
+        <label class="col-sm-4 col-form-label black-text">* Nome unità:</label>
+        <div class="col-sm-8">
+          <mat-form-field class="example-full-width">
+            <mat-label>Nome:</mat-label>
+            <input matInput placeholder="Nome" class="form-control" [(ngModel)]="unitName" readonly>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-4 col-form-label black-text">* Ruoli ammissibili:</label>
+        <div class="col-sm-8">
+          <ul>
+            <li *ngFor="let role of unitRoles; let i=index" class="black-text">
+              <label>
+                {{ role }}
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="button-group">
+      <button mat-button class="confirm-button" (click)="confirm()">Ok</button>
+    </div>
+  </ng-container>
+  <!--Ruoli-->
+  <ng-container *ngIf="data.sectionTitle === 'Ruoli'">
+    <div class="input-column">
+      <!-- Campi per l'inserimento dei dati del ruolo -->
+      <div class="form-group row">
+        <div class="col-sm-8">
+          <mat-form-field class="example-full-width">
+            <mat-label>Nome:</mat-label>
+            <input matInput placeholder="Nome" class="form-control" [(ngModel)]="roleName" readonly>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-8">
+          <mat-form-field class="example-full-width">
+            <mat-label>Descrizione:</mat-label>
+            <textarea matInput placeholder="Descrizione" class="form-control" [(ngModel)]="roleDescription" readonly></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="button-group">
+      <button mat-button class="confirm-button" (click)="confirm()">Ok</button>
+    </div>
+  </ng-container>
+
+  <!--Dipendenti-->
+  <ng-container *ngIf="data.sectionTitle === 'Dipendenti'">
+    <div class="input-column">
+      <!-- Campi per l'inserimento dei dati del ruolo -->
+      <div class="form-group row">
+        <div class="col-sm-8">
+          <mat-form-field class="example-full-width">
+            <mat-label>Nome:</mat-label>
+            <input matInput placeholder="Nome" class="form-control" [(ngModel)]="employeeName" readonly>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-8">
+          <mat-form-field class="example-full-width">
+            <mat-label>Cognome:</mat-label>
+            <input matInput placeholder="Cognome" class="form-control" [(ngModel)]="employeeSurname" readonly>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-8">
+          <mat-form-field class="example-full-width">
+            <mat-label>Codice Fiscale:</mat-label>
+            <input matInput placeholder="Codice Fiscale" class="form-control" [(ngModel)]="employeeCF" readonly>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-8">
+          <mat-form-field class="example-full-width">
+            <mat-label>Email:</mat-label>
+            <input matInput placeholder="Email" class="form-control" [(ngModel)]="employeeEmail" readonly>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-4 col-form-label black-text">Lista Unita:</label>
+        <div class="col-sm-8">
+          <ul>
+            <li *ngFor="let unit of employeeUnit; let i=index" class="black-text">
+              <label>
+                {{ unit }}
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-4 col-form-label black-text">Lista Ruoli:</label>
+        <div class="col-sm-8">
+          <ul>
+            <li *ngFor="let role of employeeRoles; let i=index" class="black-text">
+              <label>
+                {{ role }}
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="button-group">
+      <button mat-button class="confirm-button" (click)="confirm()">Ok</button>
+    </div>
+  </ng-container>
+
+</mat-dialog-content>
+</div>

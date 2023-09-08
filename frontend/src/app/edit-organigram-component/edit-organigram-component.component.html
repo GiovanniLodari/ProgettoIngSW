@@ -1,0 +1,25 @@
+<h2 mat-dialog-title *ngIf="dataLoaded">Modifica organigramma</h2>
+<mat-dialog-content *ngIf="dataLoaded">
+  <p>{{ data.description }}</p>
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  <br>
+
+  <!-- Organigrammi -->
+  <ng-container *ngIf="section === 'Organigrammi'">
+    <div class="input-column">
+      <div class="form-group row">
+        <div class="col-sm-8">
+          <mat-form-field class="example-full-width">
+            <mat-label>* Nome:</mat-label>
+            <input matInput placeholder="Nome" class="form-control" [(ngModel)]="organigramName">
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="button-group">
+      <button mat-button class="confirm-button" (click)="updateOrganigram()">Ok</button>
+      <button mat-button class="cancel-button" (click)="cancelEdit()">Annulla</button>
+    </div>
+  </ng-container>
+</mat-dialog-content>

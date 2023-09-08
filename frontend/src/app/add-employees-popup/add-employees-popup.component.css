@@ -1,0 +1,11 @@
+.confirm-button {
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  font-size: 14px;
+  width: 5px;
+  height: 20px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}

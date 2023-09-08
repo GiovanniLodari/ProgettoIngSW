@@ -1,0 +1,123 @@
+ .toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #1976d2;
+    color: white;
+    font-weight: 500;
+  }
+
+  .toolbar img {
+    margin: 0 16px;
+    background-color: transparent;
+  }
+
+  .back-button {
+    margin-right: 10px;
+    background-color: #1565c0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 80px;
+    height: 40px;
+  }
+
+  .info-button {
+    margin-right: 10px;
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+  }
+
+  .back-button:hover {
+    background-color: #0d3a70;
+  }
+
+  .mat-icon-button,
+  .mat-icon {
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .panel-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .back-button {
+    margin-left: auto;
+    margin-right: 10px;
+    width: 88px;
+    height: 36px;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .contenitore {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: auto;
+  }
+
+  .subcontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1000px;
+  }
+
+  .mat-card {
+    width: 100%;
+    margin: auto;
+  }
+
+  .mat-column-position {
+    width: 32px;
+    border-right: 1px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+  }
+
+  .mat-column-name {
+    padding-left: 16px;
+    font-size: 20px;
+  }
+
+  .mat-column-surname {
+    padding-left: 16px;
+    font-size: 20px;
+    padding-right: 8px;
+  }
+
+  .mat-column-cf {
+    padding-left: 20px;
+  }
+
+  .mat-cell.file-cell {
+    min-width: 150px;
+  }
+
+  .file-button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 10px;
+    margin: 0;
+    font-size: inherit;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .file-button:hover {
+    background-color: hsl(0, 0%, 95%);
+  }

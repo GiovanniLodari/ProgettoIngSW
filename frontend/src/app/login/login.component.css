@@ -1,0 +1,24 @@
+ .container {
+      margin: 50px auto;
+      width: 300px;
+      text-align: center;
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #1976d2;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: #1565c0;
+    }

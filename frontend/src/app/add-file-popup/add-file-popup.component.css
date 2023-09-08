@@ -1,0 +1,83 @@
+.button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-group {
+  display: flex;
+  gap: 8px;
+}
+
+.import-button {
+  margin-bottom: 8px;
+  background-color: #1976d2;
+  color: white;
+  width: 170px;
+}
+.import-button:hover {
+  background-color: #1565c0;
+}
+
+.confirm-button {
+  background-color: #1976d2;
+  color: white;
+  width: 60px;
+}
+.confirm-button:hover {
+  background-color: #1565c0;
+}
+
+.cancel-button {
+  background-color: #1976d2;
+  color: white;
+  margin-left: 8px;
+  width: 60px;
+}
+.cancel-button:hover {
+  background-color: #1565c0;
+}
+
+.new-button {
+  margin-bottom: 8px;
+  background-color: #1976d2;
+  color: white;
+  width: 170px;
+}
+.new-button:hover {
+  background-color: #1565c0;
+}
+
+.import-button,
+.confirm-button,
+.cancel-button,
+.new-button {
+  border: none;
+  border-radius: 15px;
+}
+.selected-file-label {
+  border: 1px solid #ccc;
+  margin: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  border-radius: 15px;
+}
+.error-message {
+  font-size: 14px;
+  color: red;
+  margin-top: 5px;
+}
+.mat-dialog-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.black-text {
+  color: black;
+}
+.example-full-width{
+  width: 500px;
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HomePage</title>
+  <link rel="stylesheet" href="home.component.css">
+</head>
+<body>
+<div class="toolbar" role="banner">
+  <img width="40" alt="App Logo" src="assets/logo.png">
+  <span>Benvenuto nell'area di gestione dell'organigramma aziendale</span>
+  <div class="spacer"></div>
+  <button mat-icon-button class="info-button" (click)="openDescriptionPopup()">
+    <mat-icon>help</mat-icon>
+    <!--<img width="35" alt="Info Logo" src="assets/infoIcon.png">-->
+  </button>
+  <button mat-button class="logout-button" (click)="redirectToLoginPage()" color="white">Log-Out</button>
+</div>
+
+<div class="container">
+  <h2>Area Gestione Organigrammi</h2>
+</div>
+
+<div class="full-width-container">
+  <div class="column">
+    <mat-card>
+      <div class="contenitore">
+        <div class="panel-toolbar section-toolbar">
+          <span class="section-title">Organigrammi</span>
+          <button mat-button class="add-file" (click)="openAddFilePopup(sections[0])">+ Aggiungi organigramma</button>
+        </div>
+        <mat-card-content>
+          <!-- Contenuto Organigrammi -->
+          <div class="scroll-container">
+            <div class="scroll-panel" style="width: 70%; overflow-x: scroll; overflow-y: hidden; white-space: nowrap;">
+              <div class="item" *ngFor="let file of sections[0].files" [@fadeInOut] [class.active]="true">
+                <div class="unit-card">
+                  <div class="file-name">{{ file }}</div>
+                  <div class="divider-container">
+                    <mat-divider></mat-divider>
+                  </div>
+                  <div class="file-action">
+                    <button mat-icon-button class="file-button" (click)="editOrganigram(file)">
+                      <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button class="file-button" (click)="openOrganigram(file)">
+                      <mat-icon>list_alt</mat-icon>
+                    </button>
+                    <button mat-icon-button class="file-button" (click)="deleteOrganigram(file)">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </div>
+    </mat-card>
+    <br>
+    <mat-card>
+      <div class="contenitore">
+        <div class="panel-toolbar section-toolbar">
+          <span class="section-title">Unità Organizzative</span>
+          <button mat-button class="add-file" (click)="openAddFilePopup(sections[1])">+ Aggiungi unità</button>
+        </div>
+        <mat-card-content>
+          <!-- Contenuto Unità Organizzative -->
+          <div class="scroll-container">
+            <div class="scroll-panel" style="width: 70%; overflow-x: scroll; overflow-y: hidden; white-space: nowrap;">
+              <div class="item" *ngFor="let file of sections[1].files" [@fadeInOut] [class.active]="true">
+                <div class="unit-card">
+                  <div class="file-name">{{ file.name }}</div>
+                  <div class="divider-container">
+                    <mat-divider></mat-divider>
+                  </div>
+                  <div class="file-action">
+                    <button mat-icon-button class="file-button" (click)="editUnit(sections[1].title, file.name)">
+                      <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button class="file-button" (click)="openFile(file.name, 'Unità Organizzative')">
+                      <mat-icon>list_alt</mat-icon>
+                    </button>
+                    <button mat-icon-button class="file-button" (click)="deleteUnit(file)">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </div>
+    </mat-card>
+  </div>
+  <br>
+  <div class="column">
+    <div class="sameLevel">
+      <div class="role">
+        <mat-card>
+          <div class="contenitore">
+            <div class="panel-toolbar section-toolbar">
+              <span class="section-title">Ruoli</span>
+            </div>
+            <mat-card-content>
+              <!-- Contenuto Ruoli -->
+              <div class="contenuto">
+                <div class="unit-card-rd">
+                  <button mat-button class="showList" (click)="openTableComponent(sections[2])">Visualizza elenco</button>
+                </div>
+                <div class="unit-card-rd">
+                  <button mat-button class="inner-add-file" (click)="openAddFilePopup(sections[2])">+ Aggiungi ruolo</button>
+                </div>
+              </div>
+            </mat-card-content>
+          </div>
+        </mat-card>
+        <br>
+      </div>
+
+      <div class="employee">
+        <mat-card>
+          <div class="contenitore">
+            <div class="panel-toolbar section-toolbar">
+              <span class="section-title">Dipendenti</span>
+            </div>
+            <mat-card-content>
+              <!-- Contenuto Dipendenti -->
+              <div class="contenuto">
+                <div class="unit-card-rd">
+                  <button mat-button class="showList" (click)="openTableComponent(sections[3])">Visualizza elenco</button>
+                </div>
+                <div class="unit-card-rd">
+                  <button mat-button class="inner-add-file" (click)="openAddFilePopup(sections[3])">+ Aggiungi dipendente</button>
+                </div>
+              </div>
+            </mat-card-content>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+</body>
+</html>

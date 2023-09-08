@@ -1,0 +1,145 @@
+<h2 mat-dialog-title>{{ data.title }}</h2>
+<mat-dialog-content>
+  <p>{{ data.description }}</p>
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  <br>
+  <!--Organigrammi-->
+  <ng-container *ngIf="data.section.title === 'Organigrammi'">
+    <div class="input-column">
+      <!-- Campi per l'inserimento dei dati del ruolo -->
+      <div class="form-group row">
+        <div class="col-sm-8">
+          <mat-form-field class="example-full-width">
+            <mat-label>* Nome:</mat-label>
+            <input matInput placeholder="Nome" class="form-control" [(ngModel)]="organigramName" maxlength="21">
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="button-group">
+      <button mat-button class="confirm-button" (click)="createOrganigram()">Ok</button>
+      <button mat-button class="cancel-button" (click)="cancelSelectionCreate()">Annulla</button>
+    </div>
+  </ng-container>
+
+  <!--Unità Organizzative-->
+  <ng-container *ngIf="data.section.title === 'Unità Organizzative'">
+    <div class="input-column">
+      <!-- Campi per l'inserimento dei dati del ruolo -->
+      <div class="form-group row">
+        <div class="col-sm-8">
+          <mat-form-field class="example-full-width">
+            <mat-label>* Nome:</mat-label>
+            <input matInput placeholder="Nome" class="form-control" [(ngModel)]="unitName" maxlength="21">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-4 col-form-label black-text">* Ruoli ammissibili:</label>
+        <div class="col-sm-8">
+          <ul>
+            <li *ngFor="let role of roleList; let i=index" class="black-text">
+              <label>
+                <input type="checkbox" [(ngModel)]="selectedRoles[i]" />
+                {{ role }}
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="button-group">
+      <button mat-button class="confirm-button" (click)="createUnit()">Ok</button>
+      <button mat-button class="cancel-button" (click)="cancelSelectionCreate()">Annulla</button>
+    </div>
+  </ng-container>
+
+  <!--Ruoli-->
+  <ng-container *ngIf="data.section.title === 'Ruoli'">
+    <div class="input-column">
+      <!-- Campi per l'inserimento dei dati del ruolo -->
+      <div class="form-group row">
+        <label class="col-sm-4 col-form-label black-text">* Nome ruolo:</label>
+        <div class="col-sm-8">
+          <mat-form-field class="example-full-width">
+            <mat-label>* Nome:</mat-label>
+            <input matInput placeholder="Nome ruolo" class="form-control" [(ngModel)]="roleName">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-4 col-form-label black-text">* Descrizione ruolo:</label>
+        <div class="col-sm-8">
+          <mat-form-field class="example-full-width">
+            <mat-label>* Nome:</mat-label>
+            <input matInput placeholder="Descrizione" class="form-control" [(ngModel)]="roleDescription">
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="button-group">
+      <button mat-button class="confirm-button" (click)="createRole()">Ok</button>
+      <button mat-button class="cancel-button" (click)="cancelSelectionCreate()">Annulla</button>
+    </div>
+  </ng-container>
+
+  <!--Dipendenti-->
+  <ng-container *ngIf="data.section.title === 'Dipendenti'">
+    <div class="input-column">
+      <!-- Campi per l'inserimento dei dati del ruolo -->
+      <div class="form-group row">
+        <div class="col-sm-8">
+          <mat-form-field class="example-full-width">
+            <mat-label>* Nome:</mat-label>
+            <input matInput placeholder="Nome" class="form-control" [(ngModel)]="employeeName">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-8">
+          <mat-form-field class="example-full-width">
+            <mat-label>* Cognome:</mat-label>
+            <input matInput placeholder="Cognome" class="form-control" [(ngModel)]="employeeSurname">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-8">
+          <mat-form-field class="example-full-width">
+            <mat-label>* Codice Fiscale:</mat-label>
+            <input matInput [(ngModel)]="employeeCF" placeholder="Codice Fiscale" class="form-control"  maxlength="16">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-8">
+          <mat-form-field class="example-full-width">
+            <mat-label>* Email:</mat-label>
+            <input matInput [(ngModel)]="employeeEmail" placeholder="Email" class="form-control">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-4 col-form-label black-text">* Lista Ruoli:</label>
+        <div class="col-sm-8">
+          <ul>
+            <li *ngFor="let role of roleList; let i=index" class="black-text">
+              <label>
+                <input type="checkbox" [(ngModel)]="selectedRoles[i]" />
+                {{ role }}
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    <br>
+    <div class="button-group">
+      <button mat-button class="confirm-button" (click)="createEmployee()">Ok</button>
+      <button mat-button class="cancel-button" (click)="cancelSelectionCreate()">Annulla</button>
+    </div>
+    </div>
+  </ng-container>
+</mat-dialog-content>

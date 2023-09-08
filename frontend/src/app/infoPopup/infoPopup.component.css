@@ -1,0 +1,11 @@
+.closeButton {
+  margin-bottom: 8px;
+  background-color: #1976d2;
+  color: white;
+  width: 70px;
+  border: none;
+  border-radius: 15px;
+}
+.closeButton:hover {
+  background-color: #1565c0;
+}

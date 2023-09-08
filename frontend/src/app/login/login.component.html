@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pagina di Accesso</title>
+  <link rel="stylesheet" href="login.component.css">
+</head>
+<body>
+<div class="container">
+  <h2>Pagina di Accesso</h2>
+  <form (submit)="login($event)">
+    <input type="text" placeholder="Email" id="email">
+    <br>
+    <input type="password" placeholder="Password" id="password">
+    <br>
+    <p [ngStyle]="{ color: hasError ? 'red' : 'inherit' }">{{ errorMessage }}</p>
+    <br>
+    <button type="submit">Accedi</button>
+  </form>
+</div>
+</body>
+</html>
