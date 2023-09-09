@@ -54,9 +54,7 @@ public class HomeController {
 
     @PostMapping("/organigram")
     public ResponseEntity<String> createOrganigram(@RequestBody String organigramRequest){
-        //Organigramma organigramma = organigrammaService.createOrganigramma(organigramRequest);
         Organigramma organigramma = (Organigramma) oc.creaOrganigramma(organigramRequest);
-
         if(organigramma != null)
             return new ResponseEntity<>(HttpStatus.OK);
         else
@@ -164,7 +162,6 @@ public class HomeController {
                 ruoliAmmissibili.add(role);
             }
         }
-        //UnitaOrganizzativa unitaOrganizzativa = unitaOrganizzativaService.createUnitaOrganizzativa(name, ruoliAmmissibili);
         UnitaOrganizzativa unitaOrganizzativa = (UnitaOrganizzativa) oc.creaUnitaOrganizzativa(name, ruoliAmmissibili);
         for(Ruolo r : unitaOrganizzativa.getRuoliAmmissibili()){
             r.getUnitaOrganizzative().add(unitaOrganizzativa);
@@ -233,8 +230,10 @@ public class HomeController {
     @PostMapping("/deleteUnit")
     public ResponseEntity<String> deleteOrganizationalUnit(@RequestBody String unitRequest){
         String[] array = unitRequest.split("\"");
+        System.out.println(array[3]);
         UnitaOrganizzativa unitaOrganizzativa = unitaOrganizzativaService.getByName(array[3]);
         if(unitaOrganizzativa != null){
+            System.out.println("ok1");
             List<Dipendente> dipendenti = dipendenteService.getAll();
             for(Dipendente d : dipendenti){
                 if(d.getListaRuoli().contains(unitaOrganizzativa)) {
@@ -245,14 +244,11 @@ public class HomeController {
             List<Ruolo> ruoli = ruoloService.getAll();
             for(Ruolo r : ruoli){
                 if(r.getUnitaOrganizzative().size() != 0) {
-                    for(UnitaOrganizzativa u: r.getUnitaOrganizzative()) {
-                        if (u.equals(unitaOrganizzativa)) {
-                            r.getUnitaOrganizzative().remove(u);
-                            ruoloService.updateRole(r);
-                        }
-                    }
+                    if(r.getUnitaOrganizzative().contains(unitaOrganizzativa))
+                        r.getUnitaOrganizzative().remove(unitaOrganizzativa);
                 }else continue;
             }
+            System.out.println("ok2");
             unitaOrganizzativaService.deleteUnitaOrganizzativa(unitaOrganizzativa);
             return new ResponseEntity<>("", HttpStatus.OK);
         }
@@ -265,7 +261,6 @@ public class HomeController {
     public ResponseEntity<String> checkUnitDelete(@RequestBody String unitRequest) {
         UnitaOrganizzativa unitaOrganizzativa = unitaOrganizzativaService.getByName(unitRequest);
         if (unitaOrganizzativa != null) {
-            System.out.println(unitaOrganizzativa.getUnitaOrganizzativaPadre().getNome());
             if (unitaOrganizzativa.getUnitaOrganizzativaPadre() != null || unitaOrganizzativa.getListaSottoUnita().size() > 0) {
                 return new ResponseEntity<>("false", HttpStatus.OK);
             } else {

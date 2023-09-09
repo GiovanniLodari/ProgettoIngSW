@@ -34,6 +34,7 @@ import { map, catchError, tap } from 'rxjs/operators';
 export class HomeComponent implements OnInit {
   organigramName: string = '';
   organigramList: string[] = [];
+  checkDelete: boolean = false;
 
   sections: { title: string, files: { name: string }[] }[] = [
     { title: 'Organigrammi', files: [] },
@@ -192,35 +193,36 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  checkUnitDelete(unit: any): Observable<boolean> {
-    return this.http.post<string>('http://localhost:8080/checkUnitDelete', unit.name).pipe(
-      //tap(response => console.log('Risposta ricevuta:', response)),
-      map(response => response === "true"),
-      catchError(error => {
-        console.error('Errore durante il recupero dei dati', error);
-        return of(false);
+  checkUnitDelete(unit: any): Promise<void> {
+    return this.http.post<boolean>('http://localhost:8080/checkUnitDelete', unit.name).toPromise()
+      .then((response) => {
+      console.log(response);
+        if (response === true) {
+          this.checkDelete = true;
+        }
       })
-    );
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
-  deleteUnit(file: any): void {
-    this.checkUnitDelete(file).subscribe(check => {
-      if (!check) {
+  async deleteUnit(file: any): Promise<void> {
+    try {
+      await this.checkUnitDelete(file);
+      console.log(this.checkDelete);
+      if (!this.checkDelete) {
         window.alert("Non è possibile eliminare l'unità perché è contenuta in un organigramma.");
       } else {
         if (confirm("Sei sicuro di voler procedere?")) {
-          this.http.post('http://localhost:8080/deleteUnit', file).subscribe(
-            response => {
-              window.location.reload();
-            },
-            error => {
-              console.error('Errore durante l\'eliminazione dell\'unità:', error);
-            }
-          );
+          await this.http.post('http://localhost:8080/deleteUnit', file).toPromise();
+          window.location.reload();
         }
       }
-    });
+    } catch (error) {
+      console.error('Errore durante l\'eliminazione dell\'unità o il recupero dei dati:', error);
+    }
   }
+
 
   getRoles(): void {
     this.http.get<any[]>('http://localhost:8080/roles').subscribe(
