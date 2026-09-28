@@ -45,9 +45,10 @@ interface FlatNode {
 }
 
 @Component({
-  selector: 'app-tree',
-  templateUrl: './tree.component.html',
-  styleUrls: ['./tree.component.css']
+    selector: 'app-tree',
+    templateUrl: './tree.component.html',
+    styleUrls: ['./tree.component.css'],
+    standalone: false
 })
 export class TreeComponent implements OnInit {
   organizationalUnits: string[] = [];

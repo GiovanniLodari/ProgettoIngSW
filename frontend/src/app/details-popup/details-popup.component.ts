@@ -15,9 +15,10 @@ interface DetailsPopupData {
 }
 
 @Component({
-  selector: 'app-details-popup',
-  templateUrl: './details-popup.component.html',
-  styleUrls: ['./details-popup.component.css']
+    selector: 'app-details-popup',
+    templateUrl: './details-popup.component.html',
+    styleUrls: ['./details-popup.component.css'],
+    standalone: false
 })
 export class DetailsPopupComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: DetailsPopupData, private http: HttpClient,

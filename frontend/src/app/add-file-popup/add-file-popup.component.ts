@@ -7,9 +7,10 @@ import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-add-file-popup',
-  templateUrl: './add-file-popup.component.html',
-  styleUrls: ['./add-file-popup.component.css']
+    selector: 'app-add-file-popup',
+    templateUrl: './add-file-popup.component.html',
+    styleUrls: ['./add-file-popup.component.css'],
+    standalone: false
 })
 export class AddFilePopupComponent {
   @Input() color: string = '#1976d2';

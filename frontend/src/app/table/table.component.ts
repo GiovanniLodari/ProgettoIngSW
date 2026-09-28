@@ -10,9 +10,10 @@ import { Observable, of, pipe } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+    selector: 'app-table',
+    templateUrl: './table.component.html',
+    styleUrls: ['./table.component.css'],
+    standalone: false
 })
 export class TableComponent implements OnInit {
   files: any[] = [];

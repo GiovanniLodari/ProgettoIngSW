@@ -1,15 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { EditFilePopupComponent } from './edit-file-popup.component';
+import { EditUnitPopupComponent } from './edit-file-popup.component';
 
-describe('EditFilePopupComponent', () => {
-  let component: EditFilePopupComponent;
-  let fixture: ComponentFixture<EditFilePopupComponent>;
+describe('EditUnitPopupComponent', () => {
+  let component: EditUnitPopupComponent;
+  let fixture: ComponentFixture<EditUnitPopupComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [EditFilePopupComponent]
+      declarations: [EditUnitPopupComponent]
     });
-    fixture = TestBed.createComponent(EditFilePopupComponent);
+    fixture = TestBed.createComponent(EditUnitPopupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

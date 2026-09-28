@@ -3,9 +3,10 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-edit-file-popup',
-  templateUrl: './edit-file-popup.component.html',
-  styleUrls: ['./edit-file-popup.component.css']
+    selector: 'app-edit-file-popup',
+    templateUrl: './edit-file-popup.component.html',
+    styleUrls: ['./edit-file-popup.component.css'],
+    standalone: false
 })
 export class EditUnitPopupComponent {
   title: string;

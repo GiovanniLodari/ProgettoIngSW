@@ -1,14 +1,16 @@
 import { TestBed } from '@angular/core/testing';
-import { LoginServiceService } from './login-service.service';
-import { HttpClient } from '@angular/common/http';
-constructor(private http: HttpClient) { }
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { LoginService } from './login.service';
 
-describe('LoginServiceService', () => {
-  let service: LoginServiceService;
+describe('LoginService', () => {
+  let service: LoginService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(LoginServiceService);
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+    });
+    service = TestBed.inject(LoginService);
   });
 
   it('should be created', () => {

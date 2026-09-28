@@ -3,9 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-add-unit-dialog',
-  templateUrl: './add-unit-dialog.component.html',
-  styleUrls: ['./add-unit-dialog.component.css']
+    selector: 'app-add-unit-dialog',
+    templateUrl: './add-unit-dialog.component.html',
+    styleUrls: ['./add-unit-dialog.component.css'],
+    standalone: false
 })
 export class AddUnitDialogComponent implements OnInit {
   organizationalUnits: string[] = [];

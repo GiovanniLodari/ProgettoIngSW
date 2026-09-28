@@ -4,7 +4,7 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "types": [
-    	"jquery"
+      "jquery"
     ],
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
@@ -18,15 +18,11 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
-    "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    "useDefineForClassFields": false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

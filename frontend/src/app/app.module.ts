@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,48 +38,41 @@ import { MatMenuModule } from '@angular/material/menu';
 import { DetailsPopupComponent } from './details-popup/details-popup.component';
 import { AddEmployeesPopupComponent } from './add-employees-popup/add-employees-popup.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    HomeComponent,
-    InfoPopupComponent,
-    AddFilePopupComponent,
-    EditUnitPopupComponent,
-    TableComponent,
-    DescriptionPopupComponent,
-    EditOrganigramComponentComponent,
-    TreeComponent,
-    AddUnitDialogComponent,
-    DetailsPopupComponent,
-    AddEmployeesPopupComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    CommonModule,
-    CdkTreeModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    MatMenuModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatListModule,
-    MatSelectModule,
-    MatButtonModule,
-    MatOptionModule,
-    FormsModule,
-    MatCheckboxModule,
-    ReactiveFormsModule,
-    MatIconModule,
-    MatDividerModule,
-    MatTreeModule,
-    MatTableModule,
-    NgbModule,
-    MatInputModule
-  ],
-  providers: [LoginService],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        LoginComponent,
+        HomeComponent,
+        InfoPopupComponent,
+        AddFilePopupComponent,
+        EditUnitPopupComponent,
+        TableComponent,
+        DescriptionPopupComponent,
+        EditOrganigramComponentComponent,
+        TreeComponent,
+        AddUnitDialogComponent,
+        DetailsPopupComponent,
+        AddEmployeesPopupComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        CommonModule,
+        CdkTreeModule,
+        BrowserAnimationsModule,
+        MatCardModule,
+        MatMenuModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatListModule,
+        MatSelectModule,
+        MatButtonModule,
+        MatOptionModule,
+        FormsModule,
+        MatCheckboxModule,
+        ReactiveFormsModule,
+        MatIconModule,
+        MatDividerModule,
+        MatTreeModule,
+        MatTableModule,
+        NgbModule,
+        MatInputModule], providers: [LoginService, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }

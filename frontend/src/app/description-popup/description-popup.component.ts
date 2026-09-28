@@ -4,9 +4,10 @@ import { MatInputModule } from '@angular/material/input';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-description-popup',
-  templateUrl: './description-popup.component.html',
-  styleUrls: ['./description-popup.component.css']
+    selector: 'app-description-popup',
+    templateUrl: './description-popup.component.html',
+    styleUrls: ['./description-popup.component.css'],
+    standalone: false
 })
 export class DescriptionPopupComponent {
   title: string = '';

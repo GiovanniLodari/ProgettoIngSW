@@ -29,9 +29,10 @@ class Dipendente {
 }
 
 @Component({
-  selector: 'app-add-employees-popup',
-  templateUrl: './add-employees-popup.component.html',
-  styleUrls: ['./add-employees-popup.component.css']
+    selector: 'app-add-employees-popup',
+    templateUrl: './add-employees-popup.component.html',
+    styleUrls: ['./add-employees-popup.component.css'],
+    standalone: false
 })
 export class AddEmployeesPopupComponent {
   employeesList: Dipendente[] = [];
