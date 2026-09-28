@@ -1,35 +1,35 @@
-# ProgettoIngSW — gestione di organigrammi aziendali
+# ProgettoIngSW — company organigram management
 
-Applicazione web per costruire e modificare l'**organigramma di un'azienda**: unità organizzative, dipendenti e ruoli, con importazione di dipendenti da file e visualizzazione ad albero.
+Web application to build and edit a **company organigram**: organizational units, employees and roles, with employee import from file and a tree view.
 
-Progetto per il corso di Ingegneria del Software.
+University project for the Software Engineering course. The interface is in Italian.
 
 ## Stack
 
 - **Backend**: Java 17, Spring Boot 3.5 (Web, Data JPA, Data REST), PostgreSQL
 - **Frontend**: Angular 21, Angular Material, ng-bootstrap
 
-## Requisiti
+## Requirements
 
 - JDK 17+
-- Node.js 20.19+ (o 22 / 24)
-- PostgreSQL con un database chiamato `ProgettoIngSW` e uno schema `isdb`
+- Node.js 20.19+ (or 22 / 24)
+- PostgreSQL with a database named `ProgettoIngSW` and a schema `isdb`
 
-## Configurazione
+## Configuration
 
-Il backend legge le credenziali del database dalle variabili d'ambiente:
+The backend reads the database credentials from environment variables:
 
-| Variabile | Default |
+| Variable | Default |
 |---|---|
 | `DB_URL` | `jdbc:postgresql://localhost:5432/ProgettoIngSW` |
 | `DB_USERNAME` | `postgres` |
-| `DB_PASSWORD` | *(obbligatoria)* |
+| `DB_PASSWORD` | *(required)* |
 
 ```bash
-export DB_PASSWORD=la-tua-password        # Windows PowerShell: $env:DB_PASSWORD="la-tua-password"
+export DB_PASSWORD=your-password        # Windows PowerShell: $env:DB_PASSWORD="your-password"
 ```
 
-## Avvio
+## Running
 
 ```bash
 # backend → http://localhost:8080
@@ -48,11 +48,11 @@ npm start
 cd frontend && npm run build  # output in frontend/dist/
 ```
 
-## Struttura
+## Structure
 
-| Percorso | Contenuto |
+| Path | Content |
 |---|---|
-| `src/main/java/.../controller` | API REST (organigrammi, unità, dipendenti, ruoli, login) |
-| `src/main/java/.../entity` | Entità JPA |
-| `src/main/java/.../service`, `repository` | Logica applicativa e accesso ai dati |
-| `frontend/src/app` | Componenti Angular (home, tabella, albero, popup di modifica) |
+| `src/main/java/.../controller` | REST API (organigrams, units, employees, roles, login) |
+| `src/main/java/.../entity` | JPA entities |
+| `src/main/java/.../service`, `repository` | Application logic and data access |
+| `frontend/src/app` | Angular components (home, table, tree, edit popups) |
